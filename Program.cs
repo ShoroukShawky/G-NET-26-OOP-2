@@ -94,6 +94,18 @@
             #endregion
             #endregion
             #region Q4
+            // a)
+            // static means the variable belongs to the class itself,not to individual objects
+            // there is only one copy shared between all objects
+
+            // TotalOrders is shared
+            // Item is instance-level, each object has its own copy
+
+
+            // b)
+            // no, a static method cannot access Item directly, because Item is an instance field
+            // static methods can only access static members
+
             #endregion
             #endregion
             #region part02

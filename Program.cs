@@ -51,25 +51,54 @@
              */
 
             // 4- example:
-        //    private double salary;
-        //    private double bonus;
-        //public double TotalIncome
-        //{
-        //    get
-        //    {
-        //        return salary + bonus;
-        //    }
-        //}
+            //    private double salary;
+            //    private double bonus;
+            //public double TotalIncome
+            //{
+            //    get
+            //    {
+            //        return salary + bonus;
+            //    }
+            //}
 
-        #endregion
-        #region Q3
-        #endregion
-        #region Q4
-        #endregion
-        #endregion
-        #region part02
-        #endregion
+            #endregion
+            #region Q3
+            #region a
+            // it's called an indexer , it allows an object to be accessed like an array
+            #endregion
+            #region b
+            // if register[10] is used while the array size is 5, it will cause IndexOutOfRangeException at runtime
 
-    }
+            // to make it safer, add validation inside get and set:
+
+            //     public string this[int index]
+            //     {
+            //    get
+            //    {
+            //        if (index >= 0 && index < names.Length)
+            //            return names[index];
+
+            //        return "invalid indix";
+            //    }
+            //    set
+            //    {
+            //        if (index >= 0 && index < names.Length)
+            //            names[index] = value;
+            //    }
+            //}
+            #endregion
+            #region c
+            // yes, a class can have more than one indexer
+            // it be useful if they have different parameter types
+
+            #endregion
+            #endregion
+            #region Q4
+            #endregion
+            #endregion
+            #region part02
+            #endregion
+
+        }
     }
 }

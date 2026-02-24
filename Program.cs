@@ -109,8 +109,65 @@
             #endregion
             #endregion
             #region part02
-            #endregion
+            Console.WriteLine("======== Ticket Booking ========\n");
+            Cinema cinema = new Cinema();
 
+            for (int i = 1; i <= 3; i++)
+            {
+                Console.WriteLine($"\nEnter data for Ticket {i}:");
+
+                Console.Write("Movie Name: ");
+                string movie = Console.ReadLine();
+
+                Console.Write("Ticket Type (0=Standard, 1=VIP, 2=IMAX): ");
+                TicketType type = (TicketType)int.Parse(Console.ReadLine());
+
+                Console.Write("Seat Row (A-Z): ");
+                char row = char.Parse(Console.ReadLine());
+
+                Console.Write("Seat Number: ");
+                int number = int.Parse(Console.ReadLine());
+
+                Console.Write("Price: ");
+                double price = double.Parse(Console.ReadLine());
+
+                Ticket ticket = new Ticket(movie, type, new SeatLocation(row, number), price);
+
+                cinema.AddTicket(ticket);
+            }
+
+            Console.WriteLine("\n========== All Tickets ==========");
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (cinema[i] != null)
+                    Console.WriteLine(cinema[i]);
+            }
+
+            Console.WriteLine("\n========== Search by Movie ==========");
+            Console.Write("Enter movie name to search: ");
+            string searchName = Console.ReadLine();
+
+            var found = cinema.GetMovie(searchName);
+
+            if (found != null)
+                Console.WriteLine($"Found: {found}");
+            else
+                Console.WriteLine("Movie not found.");
+
+            Console.WriteLine("\n========== Statistics ==========");
+            Console.WriteLine($"Total Tickets Sold: {Ticket.GetTotalTicketsSold()}");
+
+            Console.WriteLine($"\nBooking Reference 1: {BookingHelper.GenerateBookingReference()}");
+            Console.WriteLine($"Booking Reference 2: {BookingHelper.GenerateBookingReference()}");
+
+            double groupTotal = BookingHelper.CalcGroupDiscount(5, 80);
+            Console.WriteLine($"\nGroup Discount (5 tickets x 80 EGP): {groupTotal} EGP (10% off applied)");
         }
     }
+
+    #endregion
+
 }
+    
+
